@@ -1,0 +1,52 @@
+/* ===== GENERAL ===== */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== TITULO ===== */
+#productos h1 {
+    color: #ff6600;
+    font-weight: bold;
+}
+
+/* ===== TARJETAS (PRODUCTOS) ===== */
+.card {
+    border: 2px solid black; /* 🔥 contorno negro */
+    border-radius: 12px;
+    transition: 0.3s;
+    background: white;
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+.card:hover {
+    border-color: #ff6600; /* cambia a naranja */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== IMÁGENES ===== */
+.card img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* ===== TITULO PRODUCTO ===== */
+.card h5 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ===== PRECIO ===== */
+.card p {
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ===== CENTRADO Y ESPACIADO ===== */
+.row {
+    margin-bottom: 20px;
+}

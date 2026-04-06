@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+  <!-- 🛒 CARRITO -->
+  <h3>🛒 Carrito</h3>
+  <ul id="carrito" class="list-group mb-3"></ul>
+  <h5>Total: Bs. <span id="total">0</span></h5>
+
+</div>
+
+<section id="productos" class="container mt-5">
+  <h1 class="text-center">Nuestros Productos</h1>
+
+  <!-- 🔵 FILA 1 -->
+  <div class="row mt-4 justify-content-center">
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <img src="img/llaves.jpg" class="img-fluid">
+        <h5>Llaves</h5>
+        <p style="color: green; font-weight: bold;">Bs. 350</p>
+        <button class="btn btn-primary" onclick="agregarCarrito('Llaves', 350)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <img src="img/alicates.jpg" class="img-fluid">
+        <h5>Alicates</h5>
+        <p style="color: green; font-weight: bold;">Bs. 50</p>
+        <button class="btn btn-primary" onclick="agregarCarrito('Alicates', 50)">Agregar</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🔵 FILA 2 -->
+  <div class="row mt-4 justify-content-center">
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <img src="img/llave cresen.jpg" class="img-fluid">
+        <h5>Llave Cresen</h5>
+        <p style="color: green; font-weight: bold;">Bs. 80</p>
+        <button class="btn btn-primary" onclick="agregarCarrito('Llave Cresen', 80)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <img src="img/martillo.jpg" class="img-fluid">
+        <h5>Martillo</h5>
+        <p style="color: green; font-weight: bold;">Bs. 25</p>
+        <button class="btn btn-primary" onclick="agregarCarrito('Martillo', 25)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <img src="img/prensa.jpg" class="img-fluid">
+        <h5>Prensa</h5>
+        <p style="color: green; font-weight: bold;">Bs. 120</p>
+        <button class="btn btn-primary" onclick="agregarCarrito('Prensa', 120)">Agregar</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🧠 SCRIPT DEL CARRITO -->
+<script>
+let total = 0;
+
+function agregarCarrito(nombre, precio) {
+  const lista = document.getElementById("carrito");
+
+  const item = document.createElement("li");
+  item.className = "list-group-item d-flex justify-content-between";
+
+  item.innerHTML = `
+    ${nombre} - Bs. ${precio}
+    <button class="btn btn-danger btn-sm" onclick="eliminar(this, ${precio})">X</button>
+  `;
+
+  lista.appendChild(item);
+
+  total += precio;
+  document.getElementById("total").textContent = total;
+}
+
+function eliminar(boton, precio) {
+  boton.parentElement.remove();
+  total -= precio;
+  document.getElementById("total").textContent = total;
+}
+</script>
+
+</body>
+</html>
